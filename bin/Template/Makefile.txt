@@ -1,5 +1,5 @@
 # Variables
-appname = gpm
+appname = YOUR_APP_NAME
 
 # Actions
 Default:
