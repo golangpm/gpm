@@ -65,7 +65,7 @@ func CreateApp(appName string) {
 	json.Unmarshal(byteResult, &users)
 
 	// Done output message
-	fmt.Printf("cd %s%s%s\ngo mod init github.com/%s/%s\n", consts.Cyan, appName, consts.Reset, users.Email, appName)
+	fmt.Printf("cd %s%s%s\ngo mod init github.com/%s/%s\n", consts.Cyan, appName, consts.Reset, users.Name, appName)
 }
 
 // Create App Folder ...
@@ -122,8 +122,6 @@ func SetMakeFile(appName string) {
 }
 
 func ProjectJson(appName string) {
-	// homeDir := GetHomeDir
-	// path := fmt.Sprintf("%s/gpm-conf/gpm-config.json", consts.ConfigPath)
 	fileContent, err := os.Open(consts.ConfigPath)
 
 	if err != nil {
@@ -157,12 +155,16 @@ func ProjectJson(appName string) {
 	_ = ioutil.WriteFile(fmt.Sprintf("%s/project.json", appName), file, 0644)
 }
 
-// Getting a home dir...
-func GetHomeDir() {
-	homeDir, err := os.UserHomeDir()
+// Get project name from config...
+func GetProjectName() {
+	fileContent, err := os.Open(consts.ConfigPath)
 	if err != nil {
 		log.Fatal(err)
+		return
 	}
-
-	fmt.Println(homeDir)
+	defer fileContent.Close()
+	byteResult, _ := ioutil.ReadAll(fileContent)
+	var project Project
+	json.Unmarshal(byteResult, &project)
+	fmt.Println(project.Name)
 }

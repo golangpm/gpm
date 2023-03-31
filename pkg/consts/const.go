@@ -2,10 +2,11 @@ package consts
 
 const (
 	// General
-	Version = "1.1"
+	Version = "1.2.0"
 	// Pathes
 	ConfigFolder = "configs"
 	ConfigPath   = "/opt/gpm-conf/gpm-config.json"
+	ProjectJson  = "project.json"
 	// dev pathes
 	// ConfigPath   = "configs/gpm-config.json"
 	// colors

@@ -1,14 +1,33 @@
 package utils
 
 import (
+	"encoding/json"
 	"fmt"
+	"io/ioutil"
+	"log"
 	"os"
 	"os/exec"
+
+	"github.com/golangpm/pkg/consts"
 )
 
-func StartApp(appName string) {
+type ProjectName struct {
+	Name string `json:"name"`
+}
+
+func StartApp() {
+	fileContent, err := os.Open(consts.ProjectJson)
+	if err != nil {
+		log.Fatal(err)
+		return
+	}
+	defer fileContent.Close()
+	byteResult, _ := ioutil.ReadAll(fileContent)
+	var project ProjectName
+	json.Unmarshal(byteResult, &project)
+	// fmt.Println(project.Name)
 	// path to the application...
-	path := fmt.Sprintf("%s/cmd/%s", appName, appName)
+	path := fmt.Sprintf("cmd/%s.go", project.Name)
 	// Run the application...
 	c := exec.Command("go", "run", path)
 	c.Stdout = os.Stdout

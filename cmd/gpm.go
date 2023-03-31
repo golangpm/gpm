@@ -2,7 +2,6 @@ package main
 
 import (
 	"fmt"
-	"log"
 	"os"
 
 	user "github.com/golangpm/pkg/User"
@@ -13,37 +12,36 @@ func main() {
 	// All os arguments...
 	args := os.Args
 
-	if len(args) < 0 {
-		log.Fatal("Application don't have arguments...")
-		return
-	}
+	// if len(args) < 0 {
+	// 	log.Fatal("Application don't have arguments...")
+	// 	return
+	// }
 	// GPM defaults...
 	if len(args) < 2 {
 		utils.Logo()
+		Help()
 	}
 
 	// is goapp check...
-	if args[1] == "goapp" {
+	if len(args) > 1 && args[1] == "goapp" {
+		utils.Logo()
 		utils.CreateApp(args[2])
 		fmt.Printf("The application %s has been created!\n", os.Args[2])
+		return
 	}
-
 	// is start command check...
-	if args[1] == "start" {
-		// utils.CurrentDir()
-		Args()
+	if len(args) > 1 && args[1] == "start" {
+		utils.StartApp()
+		return
 	}
 	// set config...
-	if args[1] == "set-config" {
+	if len(args) > 1 && args[1] == "set-config" {
 		user.SetConfig()
 	}
 
 	// get config data...
-	if args[1] == "config" {
-		// user.GetHomeDir()
+	if len(args) > 1 && args[1] == "config" {
 		user.GetConfig()
-
-		// user.GetUser()
 	}
 
 	// Print executable Args
@@ -51,8 +49,16 @@ func main() {
 }
 
 // Commands list -h
-func Commands() {
+func Help() {
+	fmt.Println(`GPM Commands:
+	General Commands:
+	gpm goapp - create a new application
+	gpm start - Start your application
 
+	User Configuration:
+	gpm config - show the configuration
+	gpm set-config - set the configuration
+	`)
 }
 
 func Args() {

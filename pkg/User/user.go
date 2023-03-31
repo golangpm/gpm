@@ -76,9 +76,6 @@ func GetConfig() {
 
 // Get username from config...
 func GetUser() {
-	// homeDir := GetHomeDir
-	// path := fmt.Sprintf("%s/gpm-conf/gpm-config.json", consts.ConfigPath)
-
 	fileContent, err := os.Open(consts.ConfigPath)
 	if err != nil {
 		log.Fatal(err)
