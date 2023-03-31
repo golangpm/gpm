@@ -16,6 +16,20 @@ cd gpm
 # Mac Os
 ./gpm_mac_setup
 
+# set your configuration
+# GitHub username
+# Email address
+gpm set-config
+
+# Show your configuration
+gpm config
+
+# to start application
+gpm
+
+# to create a new project
+gpm goapp MyApp
+
 ```
 
 ## Как использовать
@@ -29,3 +43,6 @@ cd gpm
 `gpm config` - посмотреть конфиг
 
 `gpm set-config` - установить данные пользователя в конфигурацию (github username и email)
+
+
+[TODO](todo.md)
