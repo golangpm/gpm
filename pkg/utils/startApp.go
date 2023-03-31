@@ -25,7 +25,7 @@ func StartApp() {
 	byteResult, _ := ioutil.ReadAll(fileContent)
 	var project ProjectName
 	json.Unmarshal(byteResult, &project)
-	// fmt.Println(project.Name)
+
 	// path to the application...
 	path := fmt.Sprintf("cmd/%s.go", project.Name)
 	// Run the application...

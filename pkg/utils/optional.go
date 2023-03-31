@@ -32,3 +32,9 @@ func Clear() {
 	out, _ := exec.Command("clear").Output()
 	fmt.Println(string(out))
 }
+
+// Getting a home dir...
+func GetHomeDir() {
+	Home, _ := os.UserHomeDir()
+	fmt.Println("Home Directory:", Home)
+}
