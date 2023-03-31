@@ -20,6 +20,8 @@ cd gpm
 
 ## Как использовать
 
+[Documentation](./docs/DOCUMENTATION.md)
+
 `gpm` - меню утилиты
 
 `gpm goapp` **MyApp** - создать приложение "MyApp"
