@@ -2,7 +2,7 @@ package consts
 
 const (
 	// General
-	Version = "1.2.1"
+	Version = "1.2.2"
 	// Pathes
 	ConfigFolder = "configs"
 	ConfigPath   = "/opt/gpm-conf/gpm-config.json"
