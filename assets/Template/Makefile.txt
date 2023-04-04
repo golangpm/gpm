@@ -1,13 +1,13 @@
-# Variables
+# --- Variables ---
 appname = YOUR_APP_NAME
 
-# Actions
+# --- Actions ---
 Default:
-	go run cmd/$(appname).go
+	go run cmd/app/$(appname).go
 start:
 	./bin/$(appname)
 build:
-	go build -o bin/$(appname) cmd/$(appname).go
+	go build -o bin/$(appname) cmd/app/$(appname).go
 
 # --- Build an example ---
 # Make "examples" folder (Unix)

@@ -45,7 +45,7 @@ func CreateApp(appName string) {
 	MakeInternal(appName, "pkg")
 
 	// Create general file structure...
-	CreateTemplFie(fmt.Sprintf("%s/cmd/main.go", appName), fmt.Sprintf("%s/cmd/%s.go", appName, appName))
+	CreateTemplFie(fmt.Sprintf("%s/cmd/app/main.go", appName), fmt.Sprintf("%s/cmd/app/%s.go", appName, appName))
 
 	// MakeFile
 	SetMakeFile(appName)

@@ -1,7 +1,7 @@
-# Variables
+# --- Variables ---
 appname = gpm
 
-# Actions
+# --- Actions ---
 Default:
 	go run cmd/$(appname).go
 start:

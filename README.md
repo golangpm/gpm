@@ -38,11 +38,10 @@ gpm goapp MyApp
 
 `gpm` - меню утилиты
 
-`gpm goapp` **MyApp** - создать приложение "MyApp"
-
 `gpm config` - посмотреть конфиг
 
 `gpm set-config` - установить данные пользователя в конфигурацию (github username и email)
 
+`gpm goapp` **MyApp** - создать приложение "MyApp"
 
 [TODO](todo.md)
